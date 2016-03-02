@@ -2,8 +2,8 @@ name: a8-building-application
 account: bruce-syh
 server: shinyapps.io
 appId: 86661
-bundleId: 385967
+bundleId: 386061
 url: https://bruce-syh.shinyapps.io/a8-building-application/
-when: 1456954248.07786
+when: 1456959887.74387
 asMultiple: FALSE
 asStatic: FALSE

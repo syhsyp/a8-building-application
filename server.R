@@ -17,10 +17,8 @@ shinyServer(function(input, output) {
     
     #Change the data when users choose different type of data they want to see(sepal or petal)
     data_type <- switch(input$type,
-                        "Sepal" = select(data_species, 2, 
-                                         3),
-                        "Petal" = select(data_species, 4, 
-                                         5))
+                        "Sepal" = select(data_species, Sepal_Length, Sepal_Width),
+                        "Petal" = select(data_species, Petal_Length, Petal_Width))
     
     #Create the bar chart that can adjusts showing data based on users' choice
     plot_ly(data_summary, x = c(paste("Average", input$type, "Length"), 

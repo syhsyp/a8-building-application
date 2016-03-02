@@ -1,4 +1,5 @@
 library(dplyr)
+library(plotly)
 
 data('iris')
 data_summary <- group_by(iris, Species) %>%
@@ -6,3 +7,12 @@ data_summary <- group_by(iris, Species) %>%
                       Sepal_Width = mean(Sepal.Width, na.rm = TRUE), 
                       Petal_Length = mean(Petal.Length, na.rm = TRUE), 
                       Petal_Width = mean(Petal.Width, na.rm = TRUE))
+
+build_plot <-function(df, type, species) {
+  df <- filter(df, Species == species) %>%
+                select_(paste0(type, "_Length"), paste0(type, "_Width"))
+  p <- plot_ly(df, x = c(paste("Average", type, "Length"), paste("Average", type, "Width")), 
+          y = as.character(df[1,]), type = "bar"
+          )
+  layout(p, xaxis = list(title = "Data type"), yaxis = list(title = "Average Measurement"))
+}

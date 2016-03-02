@@ -5,15 +5,9 @@ source('assignment.r')
 
 # Code to be executed by the shiny server
 shinyServer(function(input, output) {
-  # input: information passed from the UI into the R session
- # lengthx <- paste0(input$type, '.', "Length")
-#  widthx <- paste0(input$type, '.', "Width")
- # value <- filter(data_summary, species = input$Species) %>%
-  #          select(lengthx, widthx)
-  # output: objects passed from R session back to the server
-  
+
   #Create an adjustable bar chart
-  output$graph <- renderPlotly({
+  output$plot <- renderPlotly({
     
     #Change the data when users click different species button
     data_species <- switch(input$Species,

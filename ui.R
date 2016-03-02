@@ -24,6 +24,6 @@ shinyUI(fluidPage(
   
     #Display the graph
     mainPanel(
-      plotlyOutput("graph")
+      plotlyOutput('plot')
     )
   )

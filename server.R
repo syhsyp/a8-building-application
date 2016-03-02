@@ -17,9 +17,9 @@ shinyServer(function(input, output) {
     
     #Change the data when users choose different type of data they want to see(sepal or petal)
     data_type <- switch(input$type,
-                        "type1" = select(data_species, paste0(input$type, '.', "Length"), 
+                        "Sepal" = select(data_species, paste0(input$type, '.', "Length"), 
                                          paste0(input$type, '.', "Width")),
-                        "type2" = select(data_species, paste0(input$type, '.', "Length"), 
+                        "Petal" = select(data_species, paste0(input$type, '.', "Length"), 
                                          paste0(input$type, '.', "Width")))
     
     #Create the bar chart that can adjusts showing data based on users' choice

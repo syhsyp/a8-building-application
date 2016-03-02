@@ -9,7 +9,7 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       #Choose which type of data to display, sepal or petal
-      selectInput("type", label = h3("display choice")),
+      selectInput("type", label = h3("display choice"),
         choices = list("Sepal" = "Sepal", 
                        "Petal" = "Petal"),
         selected = "Sepal"),
@@ -17,7 +17,7 @@ shinyUI(fluidPage(
       hr(),
       
       #Choose which species to display
-      radioButtons("Species", label = h3("Specie type")),
+      radioButtons("Species", label = h3("Specie type"),
         choices = list("setosa" = "setosa", "versicolor" = "versicolor", "virginica" = "virginica"),
         selected = "setosa")
     ),
@@ -27,3 +27,4 @@ shinyUI(fluidPage(
       plotlyOutput('plot')
     )
   )
+))

@@ -17,14 +17,15 @@ shinyServer(function(input, output) {
     
     #Change the data when users choose different type of data they want to see(sepal or petal)
     data_type <- switch(input$type,
-                        "Sepal" = select(data_species, paste0(input$type, '.', "Length"), 
-                                         paste0(input$type, '.', "Width")),
-                        "Petal" = select(data_species, paste0(input$type, '.', "Length"), 
-                                         paste0(input$type, '.', "Width")))
+                        "Sepal" = select(data_species, 2, 
+                                         3),
+                        "Petal" = select(data_species, 4, 
+                                         5))
     
     #Create the bar chart that can adjusts showing data based on users' choice
-    p <- plot_ly(data_summary, x = c(paste("Average", input$type, "Length"), 
+    plot_ly(data_summary, x = c(paste("Average", input$type, "Length"), 
                                      paste("Average", input$type, "Width")), 
-                 y = data_type[1,], type = "bar", name = "Average Length and Width")
+                 y = data_type[1,], type = "bar", name = "Average Length and Width", 
+                 xlab("Length and Width"), ylab = "Average Measurement")
   })
 })
